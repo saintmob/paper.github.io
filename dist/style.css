@@ -11,7 +11,7 @@
     *,
     :after,
     :before {
-      box-sizing: border-box
+      box-sizing: inherit;
     }
 
     html {
@@ -388,7 +388,7 @@
       -ms-flex-direction: row;
       flex-direction: row;
       -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+      /*flex-wrap: wrap;*/ 20190522
       -webkit-box-align: stretch;
       -ms-flex-align: stretch;
       align-items: stretch;
