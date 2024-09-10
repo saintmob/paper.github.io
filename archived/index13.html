@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pap.er - 专为 Mac 设计的壁纸应用</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        header a.logo {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e90ff 30%, #87cefa 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('your-background-image.jpg') no-repeat center center;
+            background-size: cover;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-content h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content a.btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            color: white;
+            background-color: #0070c9;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .hero-content a.btn:hover {
+            background-color: #005b9e;
+        }
+
+        .hero-decorative-element {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            top: -50px;
+            left: -50px;
+            z-index: 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 28px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .hero-content a.btn {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Pap.er</a>
+        <nav>
+            <a href="#">Pap.er 优雅壁纸</a>
+            <a href="#">联系我们</a>
+            <a href="#" class="btn">中文简体</a>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-background"></div>
+        <div class="hero-decorative-element"></div>
+        <div class="hero-content">
+            <h1>Pap.er - 专为 Mac 设计的壁纸应用</h1>
+            <p>每天享受来自全球新鲜精美的壁纸</p>
+            <a href="#" class="btn">Mac App Store 下载</a>
+            <a href="#" class="btn">直接下载</a>
+            <p>The Mac app requires macOS Big Sur (11.0.0) or newer.</p>
+        </div>
+    </section>
+
+    <footer>
+        © 2024 Pap.er. All rights reserved.
+    </footer>
+
+</body>
+</html>

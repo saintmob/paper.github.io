@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="title"></title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      overflow-x: hidden;
+    }
+
+    .swiper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: 0;
+      /* 将轮播图层级放在 MacBook mockup 下面 */
+    }
+
+    .swiper-slide {
+      background-size: cover;
+      background-position: center;
+    }
+
+    .mac-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .mac-device {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+      z-index: 2;
+      /* 将 MacBook mockup 层级设为最高 */
+    }
+
+    .wallpaper-container {
+      width: 100%;
+      height: 100%;
+      transition: all 0.5s ease;
+    }
+
+    .mac-container.active .mac-device {
+      opacity: 1;
+    }
+
+    .mac-container.active .wallpaper-container {
+      width: 933px;
+      /*  根据你的 mockup 图片调整  */
+      height: 583px;
+      /*  根据你的 mockup 图片调整  */
+      position: absolute;
+      top: 10.8%;
+      /*  根据你的 mockup 图片调整  */
+      left: 8.3%;
+      /*  根据你的 mockup 图片调整  */
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      /* 保证内容层级在轮播图和 MacBook mockup 之间 */
+      text-align: center;
+      padding: 20px;
+      color: white;
+    }
+
+    .header {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px 0;
+    }
+
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .menu {
+      display: flex;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    .title {
+      font-size: 3em;
+      margin-top: 100px;
+    }
+
+    .subtitle {
+      font-size: 1.5em;
+      margin-bottom: 30px;
+    }
+
+    .app-store-button {
+      display: inline-block;
+      background-color: #007aff;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .footer {
+      margin-top: 50px;
+      font-size: 0.8em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mac-container">
+    <img src="macbook.png" alt="Mac Device" class="mac-device">
+    <div class="wallpaper-container">
+      <!-- Swiper -->
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" style="background-image:url(screenshot1.jpg)"></div>
+          <div class="swiper-slide" style="background-image:url(screenshot2.jpg)"></div>
+          <div class="swiper-slide" style="background-image:url(screenshot3.jpg)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <div class="header">
+      <div class="container">
+        <div class="logo">P</div>
+        <div class="menu">
+          <a href="#" data-i18n="settings"></a>
+          <div class="select">
+            <select id="language-select">
+              <option value="en">English</option>
+              <option value="zh-CN">简体中文</option>
+              <option value="zh-TW">繁體中文</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="title" data-i18n="main-title"></h1>
+    <a href="#" class="app-store-button">
+      <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg"
+        alt="Download on the App Store" width="150">
+      <br>
+      <span data-i18n="download"></span>
+    </a>
+    <p class="footer" data-i18n="description"></p>
+  </div>
+
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.6.14/i18next.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/i18next-browser-languagedetector/6.1.3/i18nextBrowserLanguageDetector.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+
+  <script>
+    // Swiper 初始化 
+    const swiper = new Swiper('.swiper', {
+      // Optional parameters
+      direction: 'horizontal',
+      loop: true,
+      autoplay: {
+        delay: 3000, // 每 3 秒切换一次
+      },
+
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+      // And if we need scrollbar
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+    });
+
+    // i18next 初始化
+    i18next
+      .use(i18nextBrowserLanguageDetector)
+      .init({
+        fallbackLng: 'en',
+        debug: true,
+        resources: {
+          en: {
+            translation: {
+              "title": "Fluffy and Adorable Dark Mode",
+              "settings": "Settings",
+              "main-title": "Fluffy and Adorable Dark Mode <br> Cafe with Wooden Interior",
+              "download": "Download",
+              "description": "This website uses cookies to ensure you get the best experience on our website."
+            }
+          },
+          'zh-CN': {
+            translation: {
+              "title": "毛茸茸又可爱的黑暗模式",
+              "settings": "设置",
+              "main-title": "毛茸茸又可爱的黑暗模式 <br> 木质内饰的咖啡馆",
+              "download": "下载",
+              "description": "本网站使用 Cookie 来确保您获得最佳的网站体验。"
+            }
+          },
+          'zh-TW': {
+            translation: {
+              "title": "毛茸茸又可愛的黑暗模式",
+              "settings": "設定",
+              "main-title": "毛茸茸又可愛的黑暗模式 <br> 木質內飾的咖啡館",
+              "download": "下載",
+              "description": "本網站使用 Cookie 來確保您獲得最佳的網站體驗。"
+            }
+          },
+          ja: {
+            translation: {
+              "title": "ふわ・えば・ぶすき・なダークマド",
+              "settings": "せってい",
+              "main-title": "ふわ・えば・ぶすき・なダークマド<br>カフェはおデリは木ほんぼ",
+              "download": "ダウンロード",
+              "description": "ゼユエ示がいリンうれたビヴをしてテロロスへライキぜれユコーなーあぜぞどこ・けカ"
+            }
+          },
+          ko: {
+            translation: {
+              "title": "솜털 같고 사랑스러운 다크 모드",
+              "settings": "설정",
+              "main-title": "솜털 같고 사랑스러운 다크 모드 <br> 나무 인테리어의 카페",
+              "download": "다운로드",
+              "description": "이 웹사이트는 쿠키를 사용하여 웹사이트에서 최상의 경험을 얻을 수 있도록 합니다."
+            }
+          }
+        }
+      }, (err, t) => {
+        if (err) return console.error(err);
+
+        // 翻译所有带有 data-i18n 属性的元素
+        const elements = document.querySelectorAll('[data-i18n]');
+        elements.forEach(element => {
+          const key = element.getAttribute('data-i18n');
+          element.innerHTML = t(key);
+        });
+
+        // 监听语言变化
+        document.getElementById('language-select').addEventListener('change', (event) => {
+          const selectedLang = event.target.value;
+          i18next.changeLanguage(selectedLang, (err, t) => {
+            if (err) return console.error(err);
+            elements.forEach(element => {
+              const key = element.getAttribute('data-i18n');
+              element.innerHTML = t(key);
+            });
+          });
+        });
+      });
+
+    // GSAP 动画
+    gsap.registerPlugin(ScrollTrigger);
+
+    const macContainer = document.querySelector('.mac-container');
+    const wallpaperContainer = document.querySelector('.wallpaper-container');
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".content", // 修改触发器为 .content  
+        start: "top top",
+        end: "bottom top",
+        scrub: 1,
+        onEnter: () => macContainer.classList.add('active'),
+        onLeaveBack: () => macContainer.classList.remove('active')
+      }
+    });
+
+    tl.to(wallpaperContainer, {
+      width: 933, // 根据你的 mockup 图片调整
+      height: 583, // 根据你的 mockup 图片调整
+      top: "10.8%", // 根据你的 mockup 图片调整
+      left: "8.3%", // 根据你的 mockup 图片调整
+      ease: "power1.inOut"
+    });
+  </script>
+</body>
+
+</html>

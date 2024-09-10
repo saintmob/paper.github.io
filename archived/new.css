@@ -1,0 +1,51 @@
+.hero {
+    margin-bottom: 0;
+    padding: 2rem 0;
+}
+
+.hero-body {
+    padding: 150px 0;
+}
+
+
+.apple-navbar {
+    background-color: #141414;
+    color: white;
+    padding: 10px 0;
+}
+
+.apple-navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 14px;
+}
+
+.apple-hero {
+    /* background-size: cover; */
+    /* background-position: center; */
+    /* color: white; */
+    text-align: center;
+    padding: 100px 0;
+}
+
+.apple-hero h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.apple-hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.apple-hero .button {
+    font-size: 16px;
+}
+
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
