@@ -10,7 +10,7 @@
     <meta name="keywords" content="pap.er, Mac壁纸, macOS壁纸, 高清壁纸, 桌面背景, 每日壁纸, 壁纸应用">
     <meta property="og:title" content="pap.er - 专业Mac壁纸应用 | 每日精选高清壁纸">
     <meta property="og:description" content="pap.er是专为Mac设计的壁纸应用，每天提供全球精选高清壁纸。智能分类、一键设置、收藏功能，让您的Mac桌面焕然一新。">
-    <meta property="og:image" content="./assets/screenshots/webp/s00047.webp">
+    <meta property="og:image" content="./assets/screenshots/720p/s00047.webp">
     <meta property="og:url" content="https://paper.meiyuan.in">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -20,8 +20,10 @@
     <link rel="apple-touch-icon" href="./assets/icon_128x128@2x.png">
     <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
     
-    <link rel="stylesheet" href="./assets/css/pap-er.css">
+    <link rel="stylesheet" href="./assets/css/pap-er.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="./assets/css/pap-er.css"></noscript>
     <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css"/>
+    <link rel="preload" href="./assets/font/cg.ttf" as="font" type="font/ttf" crossorigin>
 </head>
 
 <body>
@@ -75,7 +77,7 @@
                 <img src="./assets/download-badge/zh-Hans-CN.svg" alt="在 Mac App Store 上下载" id="download-badge">
             </a>
             <p class="download-links">
-                <a href="https://s3.nxn.fun/dl/paper-v5.3.0.dmg" id="direct-download">下载 dmg 文件</a> | <a href="./app/pap.er-v3.6.dmg" id="old-version-download">下载版 for MacOS X 10.14+</a>
+                <a href="./app/pap.er-v5.3.1.dmg" id="direct-download">下载 dmg 文件(new!)</a> | <a href="./app/pap.er-v3.7.dmg" id="old-version-download">下载版 for MacOS X 10.13+</a>
             </p>
         </div>
     </header>
@@ -97,7 +99,7 @@
             </noscript>
             <div class="swiper-wrapper" id="screenshot-wrapper">
                 <div class="swiper-slide">
-                    <img src="./assets/screenshots/720p/s00051.webp" alt="Screenshot 1" loading="lazy" style="background: #f0f0f0;"> <!-- 占位符 -->
+                    <img src="./assets/screenshots/720p/s00051.webp" alt="Screenshot 1" loading="eager" fetchpriority="high" style="background: #f0f0f0;"> <!-- 占位符 -->
                 </div>
                 <div class="swiper-slide">
                     <img src="./assets/screenshots/720p/s00122.webp" alt="Screenshot 2" loading="lazy" style="background: #f0f0f0;"> <!-- 占位符 -->
@@ -256,7 +258,7 @@
                         <span class="faq-toggle"></span>
                     </div>
                     <div class="faq-answer">
-                        <p>新版 pap.er 5.x （Mac App Store 版本）需要 macOS 11.0 及以上系统版本，所有壁纸均由编辑精心挑选。旧版 pap.er 3.x 仍然兼容 Mac OS X 10.14+，但壁纸未经人工筛选。</p>
+                        <p>新版 pap.er 5.x （Mac App Store 版本）需要 macOS 11.0 及以上系统版本，所有壁纸均由编辑精心挑选。旧版 pap.er 3.x 仍然兼容 Mac OS X 10.13+，但壁纸未经人工筛选。</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -283,7 +285,7 @@
                         <span class="faq-toggle"></span>
                     </div>
                     <div class="faq-answer">
-                        <p>您只需将图片直接放入 pap.er 的存储文件夹，并在设置中勾选“导入本地壁纸”即可。</p>
+                        <p>您只需将图片直接放入 pap.er 的存储文件夹，并在设置中勾选"导入本地壁纸"即可。</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -339,5 +341,12 @@
 
   gtag('config', 'G-YQNS6MT05L');
 </script>
-
+<script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+<script>
+    window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
 </html>
